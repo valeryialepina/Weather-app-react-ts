@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    overflow: hidden;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+button {
+    outline: none;
+    border: none;
+}
+.container {
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    background-color: rgb(58, 56, 56);
+    .content {
+        width: 80vw;
+        margin: 0 auto;
+        display: flex;
+        border-radius: 15px;
+        justify-content: center;
+        background-color: rgb(254, 240, 255);
+        .form-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                width: 100%;
+                align-items: center;
+                border-radius: 15px 0 0 15px;
+                background-image: url('./img/bg.avif');
+                color: azure;
+            .form-wrapper{
+                width: 100%;
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .name {
+                    width: 95%;
+                    display: flex;
+                    justify-content: space-between;
+                    .logo {
+                        color: rgb(190, 110, 130);
+                    }
+                    .city {
+                        display: flex;
+                        color: rgb(190, 110, 130);
+                    }
+                }
+                .search {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-size: 40px;
+                    text-align: center;
+                    height: 150px;
+                    justify-content: space-between;
+                    .search-bar {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        
+                        .input {
+                            outline: none;
+                            width: 60%;
+                            background: rgba(0, 0, 0, .2);
+                            color: azure;
+                            height: 35px;
+                            font-size: 20px;
+                            border: none;
+                            border-radius: 5px 0 0 5px;
+                            border-right: 1px solid white;
+                        }
+                        .s-icon {
+                            background: rgba(0, 0, 0, .1);
+                            color: azure;
+                            height: 35px;
+                            width: 35px;
+                            font-size: 30px;
+                            border-radius: 0 5px 5px 0;
+                        }
+                        
+                    }
+                }
+            }
+        }
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            
+        }
+        
+    }
+} 
