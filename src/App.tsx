@@ -15,45 +15,19 @@ import store from './redux/store';
 
 function App() {
 
-  const API_KEY = '5e8e9681d6b7f3d44bf3fd927388c2ec'
-  const ICON_URL = 'http://openweathermap.org/img/wn/'
-
-  // const [noData, setNoData] = useState('No Data Yet!');
-  // const [searchTerm, setSearchTerm] = useState('');
-  // const [weatherData, setWeatherData] = useState<any>([]);
-  // const [city, setCity] = useState('Unknown Location');
-  // const [weatherIcon, setWeatherIcon] = useState(`${ICON_URL}10n@2x.png`);
-  
-  // const urlForecast = `http://api.openweathermap.org/data/2.5/forecast?q=${searchTerm}&appid=${API_KEY}&units=metric&cnt=5&exclude=hourly,minutely`
-  // const urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${API_KEY}&units=metric&cnt=5`
-  // const urlMaps = `https://tile.openweathermap.org/map/${layer}/{z}/{x}/{y}.png?appid=${API_KEY}`
-  // // layer = clouds_new, precipitation_new, pressure_new, temp_new, wind_new
-
-  // const handleChange = (input: { target: { value: string; }; }) => {
-  //   const {value} = input.target 
-  //   setSearchTerm(value)
-  // }
-
-//https://tile.openweathermap.org/map/precipitation_new/1/1/1.png?appid=5e8e9681d6b7f3d44bf3fd927388c2ec
-
-
 
   const dispatch = useDispatch();
 
   const weatherData = useSelector((store: any) => store.weather.weatherOnHours);
-  console.log(useSelector((store: any) => store.weather))
   console.log(weatherData)
-
+  const currentWeather = useSelector((store: any) => store.weather.currentWeather);
+  console.log(currentWeather)
 
   const city = useSelector((store: any) => store.weather.weatherOnHours?.[0]?.city?.name + ', ' + store.weather.weatherOnHours?.[0]?.city.country);
-
   const weatherIcon: string = useSelector((store: any) => store.weather.weatherOnHours?.[1]?.list?.[0]?.weather); //?.[0]?.icon
+  const currentWeatherIcon: string = useSelector((store: any) => store.weather.currentWeather?.weather?.[0]?.icon); //?.[0]?.icon
+  console.log(currentWeatherIcon)
 
-
-  // const maxTemp: any = useSelector((store: any) => store.weather.forecastFor3Days[0]?.maxtemp_c);   
-  // const minTemp: any = useSelector((store: any) => store.weather.forecastFor3Days[0]?.mintemp_c);
-  // const dataForWetheronHours = useSelector((store: any) => store.weather.weatherOnHours);
-  // const dataForWeatherForThreeDays = useSelector((store: any) => store.weather.forecastFor3Days);
   return (
     <div className="container">
       <div className="content">
@@ -96,9 +70,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Weather weatherData = {weatherData} city = {city}  weatherIcon = {weatherIcon} />} />
-              <Route path="current" element={<Current city = {city}/>} />
-             
-              {/* <Route path="news" element={<News />} /> */}
+              <Route path="current" element={<Current city = {city}  currentWeather = {currentWeather} weatherIcon = {currentWeatherIcon}/>} />
+
             </Route>
           </Routes>
         </BrowserRouter>

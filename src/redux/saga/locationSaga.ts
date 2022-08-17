@@ -19,7 +19,7 @@ function* sendLocationSaga(action: any) {
          
 
         const { data } = yield call(axios.get, 
-            `http://api.openweathermap.org/data/2.5/forecast?q=${action.payload}&appid=${API_KEY}&units=metric&cnt=5&exclude=hourly,minutely` );
+            `http://api.openweathermap.org/data/2.5/forecast?q=${action.payload}&appid=${API_KEY}&units=metric&exclude=hourly,minutely` );
         
         const { data: d} = yield call(axios.get, 
             `https://api.openweathermap.org/data/2.5/weather?q=${action.payload}&appid=${API_KEY}&units=metric&cnt=5` );    
@@ -44,49 +44,6 @@ function* sendLocationSaga(action: any) {
         console.error(error.message)
     }
 }
-
-//******************************************************* */
-
-// function* sendCurrent(action: any) {
-
-//         const { d } = yield call(axios.get, 
-//                 `https://api.openweathermap.org/data/2.5/weather?q=${action.payload}&appid=${API_KEY}&units=metric&cnt=5` );
-//                 console.log('d', d)
-//                 yield put(setCurrentWether(d));
-                
-
-
-// }
-
-
-// function* sendForecast(action: any) {
- 
-         
-//         const { data } = yield call(axios.get, 
-//             `http://api.openweathermap.org/data/2.5/forecast?q=${action.payload}&appid=${API_KEY}&units=metric&cnt=5&exclude=hourly,minutely` );
-        
-                    
-//         yield put(setLocation(data));
-
-
-//         console.log('data', data)
-      
-
-//         const {city, list} = data;
-//         setDataFor3hours( city, list)
-//         yield put(setWeatherOnHours(threeHours));
-
-
-
-// }
-
-
-
-// function* sendLocationSaga() {
-//     fork(sendCurrent);
-//     fork(sendForecast)
-// }
-
 
 
 function* locationSaga() {
