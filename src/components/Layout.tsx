@@ -9,7 +9,7 @@ const Layout = () => {
                 <li className="nav-item">  <Link to="/">Weather Today</Link>  
                 </li>
                 <li className="nav-item"> <Link to="/current">Current Weather</Link>  </li>
-                <li className="nav-item"><Link to="/news">News</Link>  </li>
+
             </ul>
        </nav>
        <Outlet />

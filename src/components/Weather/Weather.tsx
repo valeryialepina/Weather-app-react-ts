@@ -17,13 +17,9 @@ function Weather ({weatherData, weatherIcon, city}: any) {
             <h1>Today</h1>
             <DetailsCard weather_icon = {weatherIcon} date = {date}/>
             <h1 className="title">More on {city}</h1>
-            <ul className="summary">
-              {weatherData?.[1]?.list?.map((days: any, index: number) => {
-                if (index > 0) {
-                  return (<SummaryCard key = {index} day = {days} /> )
-                }
-              })}
-            </ul>
+            <div className="summary">
+            <SummaryCard weather = {weatherData}/>
+            </div>
           </>
         }
         </>
